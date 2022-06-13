@@ -14,7 +14,7 @@ function Home() {
         <div className="flex-column">
           <button
             type="button"
-            class="btn btn-primary btn-lg btn-block mt-5 me-5 ms-3"
+            className="btn btn-primary btn-lg btn-block mt-5 me-5 ms-3"
             onClick={() => {
               navigate("/pollpage");
             }}
@@ -23,7 +23,7 @@ function Home() {
           </button>
           <button
             type="button"
-            class="btn btn-success btn-lg btn-block mt-5 me-5 ms-3"
+            className="btn btn-success btn-lg btn-block mt-5 me-5 ms-3"
             onClick={() => {
               navigate("/results");
             }}
