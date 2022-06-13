@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Pollpage from "./components/Pollpage";
 import Results from "./components/Results";
 import PageNotFound from "./components/PageNotFound";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
