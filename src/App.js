@@ -10,6 +10,7 @@ import PageNotFound from "./components/PageNotFound";
 function App() {
   return (
     <div className="App">
+      
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
@@ -19,6 +20,7 @@ function App() {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
+     
     </div>
   );
 }
