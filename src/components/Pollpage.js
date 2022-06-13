@@ -3,6 +3,9 @@ import axios from "axios";
 
 function Pollpage() {
   const [data, setData] = useState([]);
+  const [first, setFirst] = useState(null);
+  const [second, setSecond] = useState(null);
+  const [third, setThird] = useState(null);
 
   useEffect(() => {
     axios
@@ -11,9 +14,28 @@ function Pollpage() {
       )
       .then((res) => {
         setData(res.data);
-        console.log(res);
+        // console.log(res);
       });
   }, []);
+
+  const handleRank1 = (e) => {
+    if (e !== second && e !== third) {
+      localStorage.setItem("rank1", e);
+      setFirst(e);
+    }
+  };
+  const handleRank2 = (e) => {
+    if (e !== first && e !== third) {
+      localStorage.setItem("rank2", e);
+      setSecond(e);
+    }
+  };
+  const handleRank3 = (e) => {
+    if (e !== second && e !== first) {
+      localStorage.setItem("rank3", e);
+      setThird(e);
+    }
+  };
 
   return (
     <div className="d-flex flex-wrap">
@@ -34,9 +56,33 @@ function Pollpage() {
                   <h2>{item.dishName}</h2>
                   <p>{item.description}</p>
                   <div>
-                    <button className="btn-outline-dark me-3">1</button>
-                    <button className="btn-outline-dark me-3">2</button>
-                    <button className="btn-outline-dark me-3">3</button>
+                    <button
+                      className="btn-outline-dark me-3 "
+                      style={{
+                        background: item.id === first ? "orange" : "white",
+                      }}
+                      onClick={() => handleRank1(item.id)}
+                    >
+                      1
+                    </button>
+                    <button
+                      className="btn-outline-dark me-3"
+                      style={{
+                        background: item.id === second ? "orange" : "white",
+                      }}
+                      onClick={() => handleRank2(item.id)}
+                    >
+                      2
+                    </button>
+                    <button
+                      className="btn-outline-dark me-3"
+                      style={{
+                        background: item.id === third ? "orange" : "white",
+                      }}
+                      onClick={() => handleRank3(item.id)}
+                    >
+                      3
+                    </button>
                   </div>
                 </div>
               </div>
