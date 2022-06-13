@@ -11,14 +11,18 @@ function Pollpage() {
   const [third, setThird] = useState(null);
 
   useEffect(() => {
-    axios
-      .get(
-        "https://raw.githubusercontent.com/syook/react-dishpoll/main/db.json"
-      )
-      .then((res) => {
-        setData(res.data);
-        // console.log(res);
-      });
+    try {
+      axios
+        .get(
+          "https://raw.githubusercontent.com/syook/react-dishpoll/main/db.json"
+        )
+        .then((res) => {
+          setData(res.data);
+          // console.log(res);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
 
   const handleRank1 = (e) => {
